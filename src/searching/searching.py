@@ -20,10 +20,9 @@ def binary_search(arr, target, start, end):
 # or iteratively
 def agnostic_binary_search(arr, target):
     start, end, isAsc = 0, len(arr) - 1, False
-    for i in range(len(arr)):
-        if arr[i] < arr[i + 1]:
+    if len(arr) >= 2:
+        if arr[0] < arr[1]:
             isAsc = True
-        break
 
     while start <= end:
         midpoint = (start + end) // 2
