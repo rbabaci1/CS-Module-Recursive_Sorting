@@ -1,22 +1,20 @@
 # merges two arrays and sorts the result
 def merge(arrA, arrB):
-    elements = len(arrA) + len(arrB)
-    merged_arr, j, k = [0] * elements, 0, 0
+    merged_arr, i, j = [], 0, 0
 
-    for i in range(len(merged_arr)):
-        if j != len(arrA) and k != len(arrB):
-            if arrA[j] < arrB[k]:
-                merged_arr[i] = arrA[j]
-                j += 1
-            else:
-                merged_arr[i] = arrB[k]
-                k += 1
-        elif j < len(arrA):
-            merged_arr[i] = arrA[j]
-            j += 1
+    while i < len(arrA) and j < len(arrB):
+        if arrA[i] < arrB[j]:
+            merged_arr.append(arrA[i])
+            i += 1
         else:
-            merged_arr[i] = arrB[k]
-            k += 1
+            merged_arr.append(arrB[j])
+            j += 1
+
+    if i < len(arrA):
+        merged_arr.extend(arrA[i:])
+    if j < len(arrB):
+        merged_arr.extend(arrB[j:])
+
     return merged_arr
 
 
