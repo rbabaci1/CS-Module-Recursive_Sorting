@@ -21,18 +21,12 @@ def merge(arrA, arrB):
 
 
 def merge_sort(arr):
-    if len(arr) <= 1:
-        return arr
-    midpoint = len(arr) // 2
-    left = arr[:midpoint]
-    right = arr[midpoint:]
+    if len(arr) > 1:
+        midpoint = len(arr) // 2
+        left = merge_sort(arr[:midpoint])
+        right = merge_sort(arr[midpoint:])
 
-    merge_sort(left)
-    merge_sort(right)
-    merged_arr = merge(left, right)
-    for i in range(len(merged_arr)):
-        arr[i] = merged_arr[i]
-
+        arr = merge(left, right)
     return arr
 
 
