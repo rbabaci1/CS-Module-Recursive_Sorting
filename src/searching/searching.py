@@ -23,7 +23,7 @@ def binary_search(arr, target, start, end):
 def agnostic_binary_search(arr, target):
     isAsc, start, end = False, 0, len(arr) - 1
     if len(arr) >= 2:
-        if arr[0] < arr[1]:
+        if arr[0] < arr[-1]:
             isAsc = True
 
     while start <= end:
